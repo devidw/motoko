@@ -9,4 +9,4 @@ fi
 
 cp -r ./chl-tpl ./challenges/$folder
 
-code ./challenges/$folder/readme.md
+code ./challenges/$folder/readme.adoc
