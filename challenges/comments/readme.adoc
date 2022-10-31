@@ -1,0 +1,22 @@
+= Comments
+
+Motoko comes with 3 different kinds of comments:
+ 
+== Single line comments
+
+```motoko 
+// single line comment
+```
+
+== Multi-line comments
+
+```motoko 
+/* multi-line 
+   comment */
+```
+
+== Documentation comments
+
+```motoko 
+/// documentation comment
+```

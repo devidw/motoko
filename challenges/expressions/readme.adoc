@@ -1,0 +1,5 @@
+= Expressions
+
+Expressions are constructs that result in a single value.
+
+For example the expression `1+1` results in the single value `2`.

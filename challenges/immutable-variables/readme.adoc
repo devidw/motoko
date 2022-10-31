@@ -1,0 +1,22 @@
+= Immutable variables 
+
+We can declare immutable variables, that can't change, using the `let` keyword.
+
+```motoko
+let a = "a"
+```
+
+When we try to mutate the variable:
+
+```motoko
+let a = "a";
+a := "b"
+```
+
+We end up with:
+
+```
+expected mutable assignment target
+```
+
+Which absolutely makes sense, since we tried to mutate an immutable assigment target.

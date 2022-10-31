@@ -1,0 +1,4 @@
+- Create a mutable variable using `var` and give it an initial value of `0`
+- Mutate the value of the variable using the assignment operator `:=` and set
+  the value to `1`
+- Return the variable

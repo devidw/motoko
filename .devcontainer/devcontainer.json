@@ -1,0 +1,17 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"postCreateCommand": "pnpm install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dfinity-foundation.vscode-motoko",
+				"astro-build.astro-vscode",
+				"sysoev.language-stylus",
+				"svelte.svelte-vscode",
+				"antfu.unocss"
+			]
+		}
+	}
+}

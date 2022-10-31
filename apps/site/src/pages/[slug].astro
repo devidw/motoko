@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Challenge from "@/components/Challenge.svelte"
+import { getChallenges } from "@/lib/challenges"
+
+export async function getStaticPaths() {
+  const challenges = await getChallenges()
+  return challenges.map((challenge) => ({
+    params: {
+      slug: challenge.slug,
+    },
+    props: {
+      challenge,
+    },
+  }))
+}
+
+const { challenge } = Astro.props
+---
+
+<Layout title={challenge.title}>
+  <Challenge challenge={challenge} client:only />
+</Layout>

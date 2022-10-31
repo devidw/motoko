@@ -1,0 +1,13 @@
+{
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "bin",
+  }
+}

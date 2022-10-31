@@ -1,0 +1,3 @@
+Run the current programm as-is and see it fails with the expected error message.
+
+Make the programm compile by using `ignore` on the affected expressions.

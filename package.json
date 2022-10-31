@@ -1,0 +1,12 @@
+{
+  "name": "motoko",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@nrwl/nx-cloud": "^15.0.0",
+    "cli": "workspace:*",
+    "nx": "15.0.4"
+  }
+}
