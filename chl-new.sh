@@ -1,12 +1,15 @@
 #!/bin/bash
 
-folder=$1
+topic=$1
 
-if [ -z "$folder" ]; then
-    echo "Usage: $0 <folder>"
+if [ -z "$topic" ]; then
+    echo "Usage: $0 <topic>"
     exit 1
 fi
 
-cp -r ./chl-tpl ./challenges/$folder
+cp -r ./chl-tpl ./challenges/$topic
 
-code ./challenges/$folder/readme.adoc
+# Write the capitalized topic as a headline into the readme.adoc
+echo "= ${topic^}" > ./challenges/$topic/readme.adoc
+
+code ./challenges/$topic/readme.adoc

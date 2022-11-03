@@ -1,0 +1,28 @@
+@import "@fontsource/noto-serif/latin-400.css"
+@import "@fontsource/noto-serif/latin-400-italic.css"
+@import "@fontsource/noto-serif/latin-700.css"
+@import "@fontsource/noto-serif/latin-700-italic.css"
+
+.challenge__prompt
+  @apply space-y-4 text-gray-1
+
+  font-family "Noto Serif"
+  font-size 17px
+  line-height 1.5
+
+  text-rendering optimizeLegibility
+  font-smooth always
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  
+  & > .paragraph
+    width 96%
+    @apply mx-auto
+  
+  pre.highlight
+    @apply text-gray-4 rounded-lg px-6 py-4 border-(1 dark-1)
+    background-color #1D1F21
+
+  :not(pre) > code
+    @apply text-gray-4 rounded-lg px-2 py-1 border-(1 dark-1)
+    background-color #1D1F21

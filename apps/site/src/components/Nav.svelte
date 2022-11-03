@@ -4,15 +4,15 @@
   let links = [
     {
       label: "Previous",
-      href: $challenge?.page.previous,
+      href: `/${$challenge?.page.previous}`,
     },
     {
       label: "~",
-      href:"/",
+      href: "/",
     },
     {
       label: "Next",
-      href: $challenge?.page.next,
+      href: `/${$challenge?.page.next}`,
     },
   ]
 </script>

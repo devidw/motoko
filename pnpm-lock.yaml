@@ -15,6 +15,7 @@ importers:
   apps/site:
     specifiers:
       '@astrojs/svelte': ^1.0.2
+      '@fontsource/noto-serif': ^4.5.11
       '@unocss/reset': ^0.46.1
       ace-builds: ^1.12.4
       adoc-skin: ^0.1.1
@@ -30,6 +31,7 @@ importers:
       unocss: ^0.46.1
     dependencies:
       '@astrojs/svelte': 1.0.2_nwxijpkhwvwkdtkrjypvn5bwzu
+      '@fontsource/noto-serif': 4.5.11
       '@unocss/reset': 0.46.1
       ace-builds: 1.12.4
       adoc-skin: 0.1.1
@@ -47,10 +49,12 @@ importers:
   packages/cli:
     specifiers:
       '@types/node': ^18.11.7
+      commander: ^9.4.1
       motoko-test: workspace:*
       typescript: ^4.8.4
     dependencies:
       '@types/node': 18.11.7
+      commander: 9.4.1
       motoko-test: link:../motoko-test
       typescript: 4.8.4
 
@@ -578,6 +582,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/noto-serif/4.5.11:
+    resolution: {integrity: sha512-Cq7M8oD0eNQbsQUJ6RVAi78Iw7DiVHrDKHkNyAW78jJ4UvIPNASApBsrhYvaExa9eD+Efd/kwhm+CWSImo5GtQ==}
+    dev: false
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}

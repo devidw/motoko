@@ -1,0 +1,2 @@
+- way to test all challenges in the configured challenges directory and print
+each failing test

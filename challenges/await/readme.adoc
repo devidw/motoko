@@ -1,0 +1,30 @@
+= Await
+
+Asynchronous functions return promises, that resolve to a value, once it is
+available.
+
+We can store a promise in a variable and then wait for it later:
+
+[source,motoko]
+----
+let a = someAsyncFunc();
+let aResolved = await a;
+----
+
+In the above example `a` holds the promise and `aResolved` waits for the promise
+to resolve and stores the resolved value.
+
+Commonly this is done in one go:
+
+[source,motoko]
+----
+let aResolved = await someAsyncFunc();
+----
+
+If we want to wait for the result of a promise in an expression that is not a
+declaration, we can wrap the awaiting into brackets:
+
+[source,motoko]
+----
+let isTrue = (await someAsyncFunc()) == true;
+---- 

@@ -1,15 +1,20 @@
+import { Command } from 'commander'
 import { runTests } from "motoko-test"
 import { readFileSync } from "fs"
 
-const path = process.argv[2]
+const program = new Command()
 
-if (!path) {
-  console.error("Usage: motoko-test <path-to-test-directory>")
-  process.exit(1)
-}
+program
+  .version(process.env.npm_package_version || "0.0.0")
+  .argument("<name>", "Name of the challenge to run, the subdirectory in the challenges directory")
+  .option("-sol, --solution", "Run the solution instead of the challenge", false)
+  .parse(process.argv)
 
-const main = readFileSync(`${path}/main.mo`, 'utf8').toString()
-const tests = readFileSync(`${path}/test.mo`, 'utf8').toString()
+const name = program.args[0]
+const againstSolution = program.getOptionValue("solution")
+
+const main = readFileSync(`./challenges/${name}/${againstSolution ? "solution" : "main"}.mo`, 'utf8').toString()
+const tests = readFileSync(`./challenges/${name}/test.mo`, 'utf8').toString()
 
   ; (async () => {
     const out = await runTests(main, tests)

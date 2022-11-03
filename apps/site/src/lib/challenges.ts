@@ -54,6 +54,8 @@ export async function getChallenge(slug: string): Promise<Challenge> {
     slug,
     title: readme.getTitle() || slug,
     content: readme.convert(),
+    // title: slug,
+    // content: slug,
     todo,
     main,
     test,

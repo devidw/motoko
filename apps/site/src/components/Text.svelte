@@ -1,5 +1,6 @@
 <script lang="ts">
-  import "../styles/adoc.scss"
+  // import "../styles/adoc.scss"
+  import "../styles/doc.styl"
 
   export let title: string | undefined = undefined
   export let value: string

@@ -1,0 +1,5 @@
+Note that we are returning a promise in a function, that should return a boolean.
+
+Run the source as-is and see the compiler throws an exception.
+
+Fix the function to actually return a boolean value.

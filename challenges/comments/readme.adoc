@@ -2,20 +2,20 @@
 
 Motoko comes with 3 different kinds of comments:
  
-== Single line comments
+Single line comments:
 
 ```motoko 
 // single line comment
 ```
 
-== Multi-line comments
+Multi-line comments:
 
 ```motoko 
 /* multi-line 
    comment */
 ```
 
-== Documentation comments
+Documentation comments:
 
 ```motoko 
 /// documentation comment

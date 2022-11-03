@@ -29,7 +29,7 @@ export async function runTests(mainSource: string, testSource: string) {
     const testResult = {
       ...runResult,
       test: testFunc,
-      success: runResult.stdout.trim() === "true : Bool"
+      success: runResult.stdout.match(/(true : Bool)|(async true : )/) !== null
     }
     results.push(testResult)
   })
