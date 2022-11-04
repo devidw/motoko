@@ -5,6 +5,9 @@
 	"postCreateCommand": "pnpm install",
 	"customizations": {
 		"vscode": {
+			"settings": {
+				"unocss.root": "apps/site"
+			},
 			"extensions": [
 				"dfinity-foundation.vscode-motoko",
 				"astro-build.astro-vscode",

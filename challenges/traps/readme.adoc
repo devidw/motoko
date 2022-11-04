@@ -1,0 +1,16 @@
+= Traps
+
+Non-recoverable runtime failure
+
+Examples:
+
+- Division-by-zero
++
+[source,motoko]
+----
+1/0
+----
+- Out-of-bounds array indexing
+- Numeric overflow
+- Cycle exhaustion
+- Assertian failure

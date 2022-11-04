@@ -1,0 +1,79 @@
+= Commit Points
+
+When we code actors we handle messanging in async shared functions, that handle
+messanges.
+
+The actor itself has a isolated state, which we can change only from inside
+these functions.
+
+However, changing the state in these functions is not commiting these state
+changes directly to the actor state.
+
+Instead there are a couple of differnt commit points, which when reached, will
+cause the tentative state changes in the function to commit to real
+persistent actor state.
+
+These commit points are:
+
+== Explicit return or throw
+
+We we close our function by returning a result, this is a commit point that
+triggers state changes:
+
+[source,motko]
+----
+actor CommitWithReturn {
+  var someText : Text = "Initial";
+  
+  public shared func iCommitViaReturn() : async Text {
+    someText #= " something added"; // will not change the state
+    return someText; // will change the state: commit point
+  };
+};
+----
+
+== Implicit result
+
+When we write functions that does not return directly, but there is a final
+expression that ends in a result, this will cause the function to exit with this
+value.
+
+This kind of indirectly returning a result is also one of the commit points,
+that change the state of the actor.
+
+[source,motko]
+----
+actor ImplicitCommit {
+  var someText : Text = "Initial";
+  
+  public shared func iImplicitlyCommit() : async Text {
+    someText #= " something added"; // will not change the state
+    someText; // will change the state: commit point
+  };
+};
+----
+
+== Awaiting
+
+Whenever we put an `await` inside our actor functions, this is a commit point.
+
+In contract to the other two commit points which will cause the function to
+exit, we have multiple commit points in our functions when using multiple `await`.
+
+[source,motko]
+----
+actor AwaitCommit {
+  var someText : Text = "Initial";
+  
+  public shared func youCanAwaitMe() : async Text {
+    return "Hi";
+  }
+
+  public shared func iAwaitAndCommitForEach() : async {
+    someText #= " something added"; // will not change the state
+    await youCanAwaitMe(); // will change the state: commit point
+    someText #= " something more added"; // will not change the state
+    await youCanAwaitMe(); // will change the state: commit point
+  };
+};
+----

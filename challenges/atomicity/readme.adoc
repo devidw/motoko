@@ -1,0 +1,65 @@
+= Atomicity
+
+When we write actor functions, we can write them either atomic or non atomic.
+
+== Atomic
+
+When an atomic function experiences a trap, no changes will be made to the state
+of the actor.
+
+[source,motko]
+----
+actor Atomic {
+  var someState : Text = "foo";
+  
+  public shared func someMessageHandler() : async {
+    someText := "bar";
+    ignore 0/0; // Trap!
+  };
+};
+----
+
+In the above example, when we try to call the actor, function, this will fail
+because division-by-zero.
+
+No state changes will be applied to the actor. This means that after our failed
+call to the function, `someState` is still equal to `foo` and was no updated to
+`bar`.
+
+When an atomic function experiences a trap its tentative state is not commitet,
+therfore the state is completely untouched.
+
+== Non-atomic
+
+While within an non-atomic function state changes may be commited to the actor
+based on the commit points of the function.
+
+[source,motko]
+----
+actor NonAtomic {
+  var someState : Text = "foo";
+  
+  public shared func someFunc() : async Bool {
+    return true;
+  };
+  
+  public shared func som`MessageHandler() : async {
+    someState := "bar";
+    await someFunc();
+    someState := "baz";
+    ignore 0/0;
+  };
+};
+----
+
+In the above example the function we experience the same trap.
+
+Before the trap happens we make 2 tentative changes to the state.
+
+The first one is made, and then we await another function, since we are using
+`await` this is a commit point and our tentative state becomes the actor state.
+
+When we made the second state change we again apply it to the tentative state,
+but this time it is not commited, since no commit point will be reached in the function.
+
+The state of the actor after the function call therfore is `bar`.
