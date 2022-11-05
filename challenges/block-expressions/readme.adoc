@@ -14,7 +14,7 @@ block.
 
 The example above will result in a return value of `2`.
 
-As with normal expressions we can use `ignore` to overcome the erros for ununsed
+As with normal expressions, we can use `ignore` to overcome the errors for unused
 values with a different type than `()`.
 
 ```motoko
@@ -22,7 +22,7 @@ ignore do { 1 + 1 };
 do { 2 + 2 }
 ```
 
-We can use expressions anywhere in our code we can use normal expressions.
+We can use expressions anywhere in our code, we can use normal expressions.
 
 We can even nest block expressions:
 
@@ -35,4 +35,4 @@ do {
 }
 ```
 
-The above programm results in `1 : Nat`.
+The above program results in `1 : Nat`.

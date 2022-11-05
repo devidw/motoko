@@ -1,1 +1,1 @@
-Add a public immutable string variabl with the name `aString` to the module and assign any non-empty string value to it.
+Add a public immutable string variable with the name `aString` to the module and assign any non-empty string value to it.

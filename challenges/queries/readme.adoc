@@ -1,17 +1,17 @@
 = Queries
 
-By default every function we write inside our actors is an update call.
+By default, every function we write inside our actors is an update call.
 
 These functions alter the state of the canister on the Internet Computer.
 
 Before changes to the state are applied, there has to be an agreement between
 all replicas across the different nodes.
 
-Communication between at least 7 independet nodes is required to agree on the
+Communication between at least 7 independent nodes is required to agree on the
 state change, then the change has to be applied to all replicas of the canister
 and a result can be returned.
 
-In comperassion to legacy persitent data storage such as databases, changing the
+In comparison to legacy persistent data storage such as databases, changing the
 state on a canister comes with relative high latency.
 
 But since not every call to a canister necessary is designed to make changes, we can
@@ -20,10 +20,10 @@ make read-only calls.
 These read-only calls are called _queries_. When making a query, only one
 replica is read, and not all replicas.
 
-Because of this latency is lower. However, since only one replica was called
-there is no guarentee, that the state of the given replica is correct.
+Because of this, latency is lower. However, since only one replica was called
+there is no guarantee, that the state of the given replica is correct.
 
-Say the replica we fetch our data from is compromissed, we are fetching
+Say the replica we fetch our data from is compromised, we are fetching
 incorrect data.
 
 The way to provide query functions in our actors is to add the `query` modifier
@@ -43,4 +43,4 @@ actor QueryActor {
 ----
 
 To sum up: Query functions are a quick way to get data from the chain, but also
-are less trustworth, since data is read only from one replica.
+are less trustworthy, since data is read only from one replica.

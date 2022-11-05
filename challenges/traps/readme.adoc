@@ -13,4 +13,4 @@ Examples:
 - Out-of-bounds array indexing
 - Numeric overflow
 - Cycle exhaustion
-- Assertian failure
+- Assertion failure

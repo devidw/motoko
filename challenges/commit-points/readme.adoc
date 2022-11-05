@@ -1,15 +1,14 @@
 = Commit Points
 
-When we code actors we handle messanging in async shared functions, that handle
-messanges.
+When we code actors, we handle messaging in async shared functions, that handle messages.
 
 The actor itself has a isolated state, which we can change only from inside
 these functions.
 
-However, changing the state in these functions is not commiting these state
+However, changing the state in these functions is not committing these state
 changes directly to the actor state.
 
-Instead there are a couple of differnt commit points, which when reached, will
+Instead, there are a couple of different commit points, which when reached, will
 cause the tentative state changes in the function to commit to real
 persistent actor state.
 
@@ -17,7 +16,7 @@ These commit points are:
 
 == Explicit return or throw
 
-We we close our function by returning a result, this is a commit point that
+We close our function by returning a result, this is a commit point that
 triggers state changes:
 
 [source,motko]

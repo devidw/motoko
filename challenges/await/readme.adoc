@@ -11,7 +11,7 @@ let a = someAsyncFunc();
 let aResolved = await a;
 ----
 
-In the above example `a` holds the promise and `aResolved` waits for the promise
+In the above example, `a` holds the promise and `aResolved` waits for the promise
 to resolve and stores the resolved value.
 
 Commonly this is done in one go:

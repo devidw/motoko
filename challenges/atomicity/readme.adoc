@@ -1,6 +1,6 @@
 = Atomicity
 
-When we write actor functions, we can write them either atomic or non atomic.
+When we write actor functions, we can write them either atomic or non-atomic.
 
 == Atomic
 
@@ -26,12 +26,11 @@ No state changes will be applied to the actor. This means that after our failed
 call to the function, `someState` is still equal to `foo` and was no updated to
 `bar`.
 
-When an atomic function experiences a trap its tentative state is not commitet,
-therfore the state is completely untouched.
+When an atomic function experiences a trap, its tentative state is not committed, therefore the state is completely untouched.
 
 == Non-atomic
 
-While within an non-atomic function state changes may be commited to the actor
+While within a non-atomic function, state changes may be committed to the actor
 based on the commit points of the function.
 
 [source,motko]
@@ -52,14 +51,14 @@ actor NonAtomic {
 };
 ----
 
-In the above example the function we experience the same trap.
+In the above example, the function, we experience the same trap.
 
-Before the trap happens we make 2 tentative changes to the state.
+Before the trap happens, we make 2 tentative changes to the state.
 
 The first one is made, and then we await another function, since we are using
 `await` this is a commit point and our tentative state becomes the actor state.
 
-When we made the second state change we again apply it to the tentative state,
-but this time it is not commited, since no commit point will be reached in the function.
+When we made the second state change, we again apply it to the tentative state,
+but this time it is not committed, since no commit point will be reached in the function.
 
-The state of the actor after the function call therfore is `bar`.
+The state of the actor after the function call therefore is `bar`.

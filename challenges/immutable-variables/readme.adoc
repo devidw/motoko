@@ -19,4 +19,4 @@ We end up with:
 expected mutable assignment target
 ```
 
-Which absolutely makes sense, since we tried to mutate an immutable assigment target.
+Which absolutely makes sense, since we tried to mutate an immutable assignment target.

@@ -1,17 +1,17 @@
 = Ignore 
 
-We can write multiple expressions by seperating them with semicolons `;`.
+We can write multiple expressions by separating them with semicolons `;`.
 
 ```motoko
 1+1;2+2
 ```
 
-For the last expression the semicolon is optional. We can add it and it will
-work, we can obmit it and it will work exactly the same.
+For the last expression, the semicolon is optional. We can add it and it will
+work, we can omit it, and it will work exactly the same.
 
 However, the example above is actually not valid.
 
-It is expected that each expression expect the last one results in the unit type
+It is expected that each expression except the last one results in the unit type
 `()`.
 
 In our example, both expressions would result in the `Nat` type, natural number,
@@ -26,11 +26,11 @@ We get:
 expression of type Nat cannot produce expected type ()
 ```
 
-We don't use the result value of the expression anyways. 
+We don't use the result value of the expression anyway. 
 
 However, if we want to overcome this unit type restriction, we can do so.
 
-Herefore we use the `ignore` keyword.
+Therefore, we use the `ignore` keyword.
 
 ```motoko
 ignore 1 + 1;

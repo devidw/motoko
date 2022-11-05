@@ -4,10 +4,9 @@
 
 - Canisters are memory isolated
 - Canisters can communicate with asynchronous messages
-- Canisters messenge candid values, the values are binary encoded
+- Canisters message candid values, the values are binary encoded
 - Canisters only process one message at a time, others wait
-- Canisters use callbacks to register code that needs to be done on given
-message processing
+- Canisters use callbacks to register code that needs to be done on a given message processing
 
 == Motoko
 
@@ -15,7 +14,7 @@ message processing
 
 - Actors are an abstraction/representation for canisters
 - The type of the actor is its functions
-- Its asynchronous functions indicate which messanges can be handled
+- Its asynchronous functions indicate which messages can be handled
 - Types of an actor and its functions can be translated to candid
 - The candid types define how the binary data passed is structured
 
@@ -24,24 +23,24 @@ message processing
 We can think of actors like sorts of objects. But there are notable differences:
 
 - Actors come with completely isolated state
-- Any interactivity with the outside goes through asynchronous messanges
+- Any interactivity with the outside goes through asynchronous messages
 - Messages are processed one-at-a-time, no matter if issued in parallel
 
 === Motoko Implementation
 
 - Message sending in Motoko means calling an async function of an actor
-- There is no blocking in the wait for the response, istead there is a
+- There is no blocking in the wait for the response, instead there is a
 promise/future, that is return to the caller by the callee, that resolves, once
 the message is handled
 - The promise/future is a placeholder, which can result in a result
 - Because there is no blocking in the time waiting for the promise to resolve,
 the caller can do anything, send other requests to any actor or whatever
 - The caller can wait for the result, when it resolves it will be available,
-otherwise its resolved value is stored for future access
+otherwise, its resolved value is stored for future access
 
 === Shared functions and state
 
-- Actor messanging functions are called _shared_-functions, since they can be
+- Actor messaging functions are called _shared_-functions, since they can be
 accessed from remote code, actors, etc.
 - Shared functions return futures/promises that resolve once handled by the
 called actor
@@ -56,7 +55,7 @@ actor {
 }
 ----
 
-Since all functions of an actor have to be shared, we can obmit the `shared`
+Since all functions of an actor have to be shared, we can omit the `shared`
 keyword:
 
 [source,motko]
@@ -70,9 +69,9 @@ actor {
 
 ---
 
-// Questios:
+== Questions:
 
-- Can multiple messanges we processed by one actor at the same time so the
-one-action-per-time only applies to one messange handler
-  - Or does it apply to the whole actor and therfore only one messange can be
+- Can multiple messages we processed by one actor at the same time, so the
+one-action-per-time only applies to one message handler
+- Or does it apply to the whole actor and therefor only one message can be
   called at one time

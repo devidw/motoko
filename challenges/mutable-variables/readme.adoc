@@ -13,6 +13,6 @@ To mutate, update a mutable variable, we use the `:=` assignment operator.
 iAmMutable := true
 ```
 
-There are some special variatios available depending on the variable type.
+There are some special variations available depending on the variable type.
 
 For example, we can increment a number with `+=` and append to a string with `#=`.
