@@ -1,0 +1,5 @@
+Interactive learning experience for the Motoko programming language.
+
+You can progress through different lessons and will get an introduction on different topics of the language.
+
+To get familiar writing Motoko you can solve challenges in a test-driven approach.
